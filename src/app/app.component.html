@@ -7,8 +7,27 @@
         >Only show add numbers</button>
         <br/>
         <ul class="list-group">
-          <li class="list-group-item"></li>
+          <div *ngIf="onlyAdd">
+            <li 
+              class="list-group-item"
+              *ngFor="let odd of addNumbers"
+              [ngClass]="{odd: odd % 2 !== 0}"
+              [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
+              >
+              {{odd}}
+            </li>
+          </div>
+          <div *ngIf="!onlyAdd">
+            <li 
+            class="list-group-item"
+            *ngFor="let even of eventNumbers"
+            >
+            {{even}}
+          </li>
+          </div>
         </ul>
+        <p appBasicHighLight> style me with basic directive !!</p>
+        <p appBetterHighlight> style me with better directive !!</p>
     </div>
   </div>
 </div>
